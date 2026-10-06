@@ -512,7 +512,7 @@ export interface McpUiHostCapabilities {
   logging?: {};
   /** @description Sandbox configuration applied by the host. */
   sandbox?: {
-    /** @description Permissions granted by the host (camera, microphone, geolocation). */
+    /** @description Permission Policy features granted by the host. */
     permissions?: McpUiResourcePermissions;
     /** @description CSP domains approved by the host. */
     csp?: McpUiResourceCsp;
@@ -694,6 +694,30 @@ export interface McpUiResourcePermissions {
    * @deprecated Use `"clipboard-write"` instead.
    */
   clipboardWrite?: {};
+  /**
+   * @description Request Fullscreen API access.
+   *
+   * Maps to Permission Policy `fullscreen` feature.
+   */
+  fullscreen?: {};
+  /**
+   * @description Request Picture-in-Picture API access.
+   *
+   * Maps to Permission Policy `picture-in-picture` feature.
+   */
+  "picture-in-picture"?: {};
+  /**
+   * @description Request media autoplay with sound.
+   *
+   * Maps to Permission Policy `autoplay` feature.
+   */
+  autoplay?: {};
+  /**
+   * @description Request Encrypted Media Extensions access for DRM-protected media playback.
+   *
+   * Maps to Permission Policy `encrypted-media` feature.
+   */
+  "encrypted-media"?: {};
 }
 
 /**

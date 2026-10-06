@@ -201,6 +201,30 @@ interface UIResourceMeta {
      * @deprecated Use `"clipboard-write"` instead
      */
     clipboardWrite?: {},
+    /**
+     * Request Fullscreen API access
+     *
+     * Maps to Permission Policy `fullscreen` feature
+     */
+    fullscreen?: {},
+    /**
+     * Request Picture-in-Picture API access
+     *
+     * Maps to Permission Policy `picture-in-picture` feature
+     */
+    "picture-in-picture"?: {},
+    /**
+     * Request media autoplay with sound
+     *
+     * Maps to Permission Policy `autoplay` feature
+     */
+    autoplay?: {},
+    /**
+     * Request Encrypted Media Extensions access for DRM-protected media playback
+     *
+     * Maps to Permission Policy `encrypted-media` feature
+     */
+    "encrypted-media"?: {},
   },
   /**
    * Dedicated origin for view
@@ -255,11 +279,15 @@ The resource content is returned via `resources/read`:
           baseUriDomains?: string[]; // Allowed base URIs for the document (base-uri directive).
         };
         permissions?: {
-          camera?: {};             // Request camera access
-          microphone?: {};         // Request microphone access
-          geolocation?: {};        // Request geolocation access
-          "clipboard-write"?: {};  // Request clipboard write access
-          clipboardWrite?: {};     // Legacy alias for clipboard-write
+          camera?: {};               // Request camera access
+          microphone?: {};           // Request microphone access
+          geolocation?: {};          // Request geolocation access
+          "clipboard-write"?: {};    // Request clipboard write access
+          clipboardWrite?: {};       // Legacy alias for clipboard-write
+          fullscreen?: {};           // Request Fullscreen API access
+          "picture-in-picture"?: {}; // Request Picture-in-Picture API access
+          autoplay?: {};             // Request media autoplay with sound
+          "encrypted-media"?: {};    // Request Encrypted Media Extensions access for DRM-protected media playback
         };
         domain?: string;
         prefersBorder?: boolean;
@@ -706,13 +734,17 @@ interface HostCapabilities {
   logging?: {};
   /** Sandbox configuration applied by the host. */
   sandbox?: {
-    /** Permissions granted by the host (camera, microphone, geolocation, clipboard-write). */
+    /** Permission Policy features granted by the host. */
     permissions?: {
       camera?: {};
       microphone?: {};
       geolocation?: {};
       "clipboard-write"?: {};
       clipboardWrite?: {};
+      fullscreen?: {};
+      "picture-in-picture"?: {};
+      autoplay?: {};
+      "encrypted-media"?: {};
     };
     /** CSP domains approved by the host. */
     csp?: {
@@ -1515,6 +1547,10 @@ These messages are reserved for web-based hosts that implement the recommended d
       geolocation?: {},
       "clipboard-write"?: {},
       clipboardWrite?: {},
+      fullscreen?: {},
+      "picture-in-picture"?: {},
+      autoplay?: {},
+      "encrypted-media"?: {},
     }
   }
 }

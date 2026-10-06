@@ -347,6 +347,50 @@ export const McpUiResourcePermissionsSchema = z.object({
     .object({})
     .optional()
     .describe("Legacy alias for `clipboard-write`."),
+  /**
+   * @description Request Fullscreen API access.
+   *
+   * Maps to Permission Policy `fullscreen` feature.
+   */
+  fullscreen: z
+    .object({})
+    .optional()
+    .describe(
+      "Request Fullscreen API access.\n\nMaps to Permission Policy `fullscreen` feature.",
+    ),
+  /**
+   * @description Request Picture-in-Picture API access.
+   *
+   * Maps to Permission Policy `picture-in-picture` feature.
+   */
+  "picture-in-picture": z
+    .object({})
+    .optional()
+    .describe(
+      "Request Picture-in-Picture API access.\n\nMaps to Permission Policy `picture-in-picture` feature.",
+    ),
+  /**
+   * @description Request media autoplay with sound.
+   *
+   * Maps to Permission Policy `autoplay` feature.
+   */
+  autoplay: z
+    .object({})
+    .optional()
+    .describe(
+      "Request media autoplay with sound.\n\nMaps to Permission Policy `autoplay` feature.",
+    ),
+  /**
+   * @description Request Encrypted Media Extensions access for DRM-protected media playback.
+   *
+   * Maps to Permission Policy `encrypted-media` feature.
+   */
+  "encrypted-media": z
+    .object({})
+    .optional()
+    .describe(
+      "Request Encrypted Media Extensions access for DRM-protected media playback.\n\nMaps to Permission Policy `encrypted-media` feature.",
+    ),
 });
 
 /**
@@ -554,9 +598,9 @@ export const McpUiHostCapabilitiesSchema = z.object({
   /** @description Sandbox configuration applied by the host. */
   sandbox: z
     .object({
-      /** @description Permissions granted by the host (camera, microphone, geolocation). */
+      /** @description Permission Policy features granted by the host. */
       permissions: McpUiResourcePermissionsSchema.optional().describe(
-        "Permissions granted by the host (camera, microphone, geolocation).",
+        "Permission Policy features granted by the host.",
       ),
       /** @description CSP domains approved by the host. */
       csp: McpUiResourceCspSchema.optional().describe(

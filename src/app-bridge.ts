@@ -198,6 +198,10 @@ export function buildAllowAttribute(
   if (permissions["clipboard-write"] || permissions.clipboardWrite) {
     allowList.push("clipboard-write");
   }
+  if (permissions.fullscreen) allowList.push("fullscreen");
+  if (permissions["picture-in-picture"]) allowList.push("picture-in-picture");
+  if (permissions.autoplay) allowList.push("autoplay");
+  if (permissions["encrypted-media"]) allowList.push("encrypted-media");
 
   return allowList.join("; ");
 }
