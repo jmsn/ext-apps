@@ -658,6 +658,8 @@ export interface McpUiResourceCsp {
  * @description Sandbox permissions requested by the UI resource.
  *
  * Servers declare which browser capabilities their UI needs.
+ * Keys are Permission Policy feature names.
+ *
  * Hosts MAY honor these by setting appropriate iframe `allow` attributes.
  * Apps SHOULD NOT assume permissions are granted; use JS feature detection as fallback.
  */
@@ -684,6 +686,12 @@ export interface McpUiResourcePermissions {
    * @description Request clipboard write access.
    *
    * Maps to Permission Policy `clipboard-write` feature.
+   */
+  "clipboard-write"?: {};
+  /**
+   * @description Legacy alias for `clipboard-write`.
+   *
+   * @deprecated Use `"clipboard-write"` instead.
    */
   clipboardWrite?: {};
 }

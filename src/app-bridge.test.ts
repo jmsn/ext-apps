@@ -3109,6 +3109,18 @@ describe("buildAllowAttribute", () => {
         "clipboard-write",
       );
     });
+
+    it("when only clipboard-write is set", () => {
+      expect(buildAllowAttribute({ "clipboard-write": {} })).toBe(
+        "clipboard-write",
+      );
+    });
+
+    it("when clipboard-write is requested under both its key and its alias, emits it once", () => {
+      expect(
+        buildAllowAttribute({ "clipboard-write": {}, clipboardWrite: {} }),
+      ).toBe("clipboard-write");
+    });
   });
 
   describe("returns multiple directives joined with '; '", () => {
@@ -3124,6 +3136,7 @@ describe("buildAllowAttribute", () => {
           camera: {},
           microphone: {},
           geolocation: {},
+          "clipboard-write": {},
           clipboardWrite: {},
         }),
       ).toBe("camera; microphone; geolocation; clipboard-write");

@@ -165,6 +165,8 @@ interface UIResourceMeta {
    * Sandbox permissions requested by the UI
    *
    * Servers declare which browser capabilities their UI needs.
+   * Keys are Permission Policy feature names.
+   *
    * Hosts MAY honor these by setting appropriate iframe `allow` attributes.
    * Apps SHOULD NOT assume permissions are granted; use JS feature detection as fallback.
    */
@@ -191,6 +193,12 @@ interface UIResourceMeta {
      * Request clipboard write access
      *
      * Maps to Permission Policy `clipboard-write` feature
+     */
+    "clipboard-write"?: {},
+    /**
+     * Legacy alias for `clipboard-write`
+     *
+     * @deprecated Use `"clipboard-write"` instead
      */
     clipboardWrite?: {},
   },
@@ -247,10 +255,11 @@ The resource content is returned via `resources/read`:
           baseUriDomains?: string[]; // Allowed base URIs for the document (base-uri directive).
         };
         permissions?: {
-          camera?: {};           // Request camera access
-          microphone?: {};       // Request microphone access
-          geolocation?: {};      // Request geolocation access
-          clipboardWrite?: {};   // Request clipboard write access
+          camera?: {};             // Request camera access
+          microphone?: {};         // Request microphone access
+          geolocation?: {};        // Request geolocation access
+          "clipboard-write"?: {};  // Request clipboard write access
+          clipboardWrite?: {};     // Legacy alias for clipboard-write
         };
         domain?: string;
         prefersBorder?: boolean;
@@ -702,6 +711,7 @@ interface HostCapabilities {
       camera?: {};
       microphone?: {};
       geolocation?: {};
+      "clipboard-write"?: {};
       clipboardWrite?: {};
     };
     /** CSP domains approved by the host. */
@@ -1503,6 +1513,7 @@ These messages are reserved for web-based hosts that implement the recommended d
       camera?: {},
       microphone?: {},
       geolocation?: {},
+      "clipboard-write"?: {},
       clipboardWrite?: {},
     }
   }

@@ -177,7 +177,7 @@ export function isToolVisibilityAppOnly(tool: Partial<Tool>): boolean {
  * format used by iframes (e.g., "microphone; clipboard-write").
  *
  * @param permissions - Permissions requested by the UI resource
- * @returns Space-separated permission directives, or empty string if none
+ * @returns Semicolon-separated permission directives, or empty string if none
  *
  * @example
  * ```typescript
@@ -195,7 +195,9 @@ export function buildAllowAttribute(
   if (permissions.camera) allowList.push("camera");
   if (permissions.microphone) allowList.push("microphone");
   if (permissions.geolocation) allowList.push("geolocation");
-  if (permissions.clipboardWrite) allowList.push("clipboard-write");
+  if (permissions["clipboard-write"] || permissions.clipboardWrite) {
+    allowList.push("clipboard-write");
+  }
 
   return allowList.join("; ");
 }

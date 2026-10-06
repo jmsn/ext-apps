@@ -387,8 +387,14 @@
                   "properties": {},
                   "additionalProperties": false
                 },
-                "clipboardWrite": {
+                "clipboard-write": {
                   "description": "Request clipboard write access.\n\nMaps to Permission Policy `clipboard-write` feature.",
+                  "type": "object",
+                  "properties": {},
+                  "additionalProperties": false
+                },
+                "clipboardWrite": {
+                  "description": "Legacy alias for `clipboard-write`.",
                   "type": "object",
                   "properties": {},
                   "additionalProperties": false
@@ -2798,8 +2804,14 @@
                       "properties": {},
                       "additionalProperties": false
                     },
-                    "clipboardWrite": {
+                    "clipboard-write": {
                       "description": "Request clipboard write access.\n\nMaps to Permission Policy `clipboard-write` feature.",
+                      "type": "object",
+                      "properties": {},
+                      "additionalProperties": false
+                    },
+                    "clipboardWrite": {
+                      "description": "Legacy alias for `clipboard-write`.",
                       "type": "object",
                       "properties": {},
                       "additionalProperties": false
@@ -4315,8 +4327,14 @@
               "properties": {},
               "additionalProperties": false
             },
-            "clipboardWrite": {
+            "clipboard-write": {
               "description": "Request clipboard write access.\n\nMaps to Permission Policy `clipboard-write` feature.",
+              "type": "object",
+              "properties": {},
+              "additionalProperties": false
+            },
+            "clipboardWrite": {
+              "description": "Legacy alias for `clipboard-write`.",
               "type": "object",
               "properties": {},
               "additionalProperties": false
@@ -4357,8 +4375,14 @@
           "properties": {},
           "additionalProperties": false
         },
-        "clipboardWrite": {
+        "clipboard-write": {
           "description": "Request clipboard write access.\n\nMaps to Permission Policy `clipboard-write` feature.",
+          "type": "object",
+          "properties": {},
+          "additionalProperties": false
+        },
+        "clipboardWrite": {
+          "description": "Legacy alias for `clipboard-write`.",
           "type": "object",
           "properties": {},
           "additionalProperties": false
@@ -4484,8 +4508,14 @@
                   "properties": {},
                   "additionalProperties": false
                 },
-                "clipboardWrite": {
+                "clipboard-write": {
                   "description": "Request clipboard write access.\n\nMaps to Permission Policy `clipboard-write` feature.",
+                  "type": "object",
+                  "properties": {},
+                  "additionalProperties": false
+                },
+                "clipboardWrite": {
+                  "description": "Legacy alias for `clipboard-write`.",
                   "type": "object",
                   "properties": {},
                   "additionalProperties": false

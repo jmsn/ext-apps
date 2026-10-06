@@ -288,6 +288,8 @@ export const McpUiResourceCspSchema = z.object({
  * @description Sandbox permissions requested by the UI resource.
  *
  * Servers declare which browser capabilities their UI needs.
+ * Keys are Permission Policy feature names.
+ *
  * Hosts MAY honor these by setting appropriate iframe `allow` attributes.
  * Apps SHOULD NOT assume permissions are granted; use JS feature detection as fallback.
  */
@@ -330,12 +332,21 @@ export const McpUiResourcePermissionsSchema = z.object({
    *
    * Maps to Permission Policy `clipboard-write` feature.
    */
-  clipboardWrite: z
+  "clipboard-write": z
     .object({})
     .optional()
     .describe(
       "Request clipboard write access.\n\nMaps to Permission Policy `clipboard-write` feature.",
     ),
+  /**
+   * @description Legacy alias for `clipboard-write`.
+   *
+   * @deprecated Use `"clipboard-write"` instead.
+   */
+  clipboardWrite: z
+    .object({})
+    .optional()
+    .describe("Legacy alias for `clipboard-write`."),
 });
 
 /**
