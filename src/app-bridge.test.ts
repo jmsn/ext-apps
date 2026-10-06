@@ -3141,13 +3141,30 @@ describe("buildAllowAttribute", () => {
         "encrypted-media",
       );
     });
+
+    it("when the key is a feature without a named property, passes it through verbatim", () => {
+      expect(buildAllowAttribute({ "xr-spatial-tracking": {} })).toBe(
+        "xr-spatial-tracking",
+      );
+    });
   });
 
-  describe("skips entries whose value is undefined", () => {
-    it("when one of two permissions is undefined", () => {
+  describe("drops entries that cannot be emitted", () => {
+    it("when the value is undefined", () => {
       expect(buildAllowAttribute({ camera: undefined, fullscreen: {} })).toBe(
         "fullscreen",
       );
+    });
+
+    it("when the key is not a bare Permission Policy feature name", () => {
+      expect(
+        buildAllowAttribute({
+          "camera 'self'": {},
+          Fullscreen: {},
+          "camera;": {},
+          toString: {},
+        }),
+      ).toBe("");
     });
   });
 

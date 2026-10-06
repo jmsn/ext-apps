@@ -424,7 +424,7 @@
                   "additionalProperties": false
                 }
               },
-              "additionalProperties": false
+              "additionalProperties": {}
             },
             "csp": {
               "description": "CSP domains approved by the host.",
@@ -2865,7 +2865,7 @@
                       "additionalProperties": false
                     }
                   },
-                  "additionalProperties": false
+                  "additionalProperties": {}
                 },
                 "csp": {
                   "description": "CSP domains approved by the host.",
@@ -4412,7 +4412,7 @@
               "additionalProperties": false
             }
           },
-          "additionalProperties": false
+          "additionalProperties": {}
         },
         "domain": {
           "description": "Dedicated origin for view sandbox.\n\nUseful when views need stable, dedicated origins for OAuth callbacks, CORS policies, or API key allowlists.\n\n**Host-dependent:** The format and validation rules for this field are determined by each host. Servers MUST consult host-specific documentation for the expected domain format. Common patterns include:\n- Hash-based subdomains (e.g., `{hash}.claudemcpcontent.com`)\n- URL-derived subdomains (e.g., `www-example-com.oaiusercontent.com`)\n\nIf omitted, host uses default sandbox origin (typically per-conversation).",
@@ -4484,7 +4484,7 @@
           "additionalProperties": false
         }
       },
-      "additionalProperties": false
+      "additionalProperties": {}
     },
     "McpUiResourceTeardownRequest": {
       "$schema": "https://json-schema.org/draft/2020-12/schema",
@@ -4641,7 +4641,7 @@
                   "additionalProperties": false
                 }
               },
-              "additionalProperties": false
+              "additionalProperties": {}
             }
           },
           "required": ["html"],

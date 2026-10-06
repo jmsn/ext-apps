@@ -661,6 +661,8 @@ export interface McpUiResourceCsp {
  * Keys are Permission Policy feature names.
  *
  * Hosts MAY honor these by setting appropriate iframe `allow` attributes.
+ * Hosts SHOULD recognize the named keys, MAY honor other feature names, and
+ * MUST NOT apply keys that are not valid Permission Policy feature names.
  * Apps SHOULD NOT assume permissions are granted; use JS feature detection as fallback.
  */
 export interface McpUiResourcePermissions {
@@ -718,6 +720,14 @@ export interface McpUiResourcePermissions {
    * Maps to Permission Policy `encrypted-media` feature.
    */
   "encrypted-media"?: {};
+  /**
+   * Any other Permission Policy feature, keyed by its feature name.
+   *
+   * Typed `unknown` because the schema generator turns only that form into a
+   * passthrough object, so parsing keeps keys not declared above instead of
+   * stripping them.
+   */
+  [feature: string]: unknown;
 }
 
 /**
