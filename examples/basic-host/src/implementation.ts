@@ -168,7 +168,7 @@ export function loadSandboxProxy(
   // Prevent reload
   if (iframe.src) return Promise.resolve(false);
 
-  iframe.setAttribute("sandbox", "allow-scripts allow-same-origin allow-forms");
+  iframe.setAttribute("sandbox", "allow-scripts allow-same-origin allow-forms allow-presentation");
 
   // Set Permission Policy allow attribute based on requested permissions
   const allowAttribute = buildAllowAttribute(permissions);
